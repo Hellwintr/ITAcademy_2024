@@ -1,0 +1,34 @@
+{
+    "name": "MouseInput",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "147a325a-4889-4eac-b657-54f86217b9a4",
+            "actions": [
+                {
+                    "name": "LMBC",
+                    "type": "Button",
+                    "id": "04b5c12d-fad5-4e95-97e4-ef4a0c386c38",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7da1fade-ebd6-494c-8878-1183594b9fef",
+                    "path": "<Mouse>/{PrimaryAction}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LMBC",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
