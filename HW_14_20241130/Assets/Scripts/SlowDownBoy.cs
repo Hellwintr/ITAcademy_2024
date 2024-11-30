@@ -1,21 +1,21 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PlayerSpeedControl : MonoBehaviour
+public class SlowDownBoy : MonoBehaviour
 {
-    public GameObject player;
-    private NavMeshAgent agent;  
     private float normalSpeed;
     public float slowSpeedFactor = 2f;
-
     void OnTriggerEnter(Collider other)
     {
-        agent = player.GetComponent<NavMeshAgent>();
-        normalSpeed = agent.speed;
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player is slowed");
-            agent.speed /= slowSpeedFactor;
+            NavMeshAgent agent = other.GetComponent<NavMeshAgent>();
+            if (agent != null)
+            {
+                normalSpeed = agent.speed;  
+                agent.speed /= slowSpeedFactor; 
+                Debug.Log("Player is slowed");
+            }
         }
     }
 
@@ -23,8 +23,12 @@ public class PlayerSpeedControl : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player's speed restored.");
-            agent.speed = normalSpeed;
+            NavMeshAgent agent = other.GetComponent<NavMeshAgent>();
+            if (agent != null)
+            {
+                agent.speed = normalSpeed; 
+                Debug.Log("Player's speed restored.");
+            }
         }
     }
 }
