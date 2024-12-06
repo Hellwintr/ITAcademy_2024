@@ -152,3 +152,4 @@ MonoBehaviour:
   explosionTimer: 3
   explosionRadius: 5
   explosionForce: 1000
+  explosionEffectPrefab: {fileID: 2053457757850705137, guid: f34347b2361656d4b98977c9e934e6ab, type: 3}

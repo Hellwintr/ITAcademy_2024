@@ -6,6 +6,7 @@ public class GrenadeExplosion : MonoBehaviour
     public float explosionRadius = 5.0f;
     public float explosionForce = 1000f;
     private bool _exploded = false;
+    public GameObject explosionEffectPrefab;
 
     void Start()
     {
@@ -16,6 +17,10 @@ public class GrenadeExplosion : MonoBehaviour
     {
         if (_exploded) return;
         _exploded = true;
+        if (explosionEffectPrefab != null)
+        {
+            Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
+        }
         Collider[] victimColliders = Physics.OverlapSphere(transform.position, explosionRadius);
         foreach (Collider victimCollider in victimColliders)
         {
@@ -25,6 +30,7 @@ public class GrenadeExplosion : MonoBehaviour
                 rb.AddExplosionForce(explosionForce,transform.position,explosionRadius);
             }
         }
+        
         Destroy(gameObject);
     }
 }
